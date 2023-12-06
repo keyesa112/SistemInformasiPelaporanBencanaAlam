@@ -49,6 +49,7 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
+                                <th scope="col">LOKASI</th>
                                 <th scope="col">GAMBAR</th>
                                 <th scope="col">JUDUL</th>
                                 <th scope="col">CONTENT</th>
@@ -58,8 +59,11 @@
                             <tbody>
                               @forelse ($blogs as $post)
                                 <tr>
+                                  <td>
+                                    {{ $post->lokasi }}
+                                  </td>
                                     <td class="text-center">
-                                        <img src="{{ asset('/storage/blogs/'.$post->image) }}" class="rounded" style="width: 150px">
+                                        <img src="{{ asset('/posts\/'.$post->image) }}" class="rounded" style="width: 150px">
                                     </td>
                                     <td>{{ $post->title }}</td>
                                     <td>{!! $post->content !!}</td>

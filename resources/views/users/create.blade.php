@@ -54,6 +54,19 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label class="font-weight-bold">Role</label>
+                                <input type="text" class="form-control" name="level" value="user" readonly>
+
+                            
+                                <!-- error message untuk title -->
+                                @error('level')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 

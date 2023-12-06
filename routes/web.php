@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,11 +86,9 @@ Route::get('/tanah-longsor-terparah', function () {
 Route::group(['middleware' => ['auth','ceklevel:user']], function (){
 
     //laporan
-Route::resource('/blogs', \App\Http\Controllers\BlogController::class);
+Route::resource('/blogs', BlogController::class);
 
-Route::get('/jawa-timur', function () {
-    return view('pages/laporan/jawa-timur');
-});
+Route::get('/laporan',[LaporanController::class,'index']);
 
 Route::get('/jawa-barat', function () {
     return view('pages/laporan/jawa-barat');

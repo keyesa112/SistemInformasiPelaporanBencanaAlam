@@ -7,23 +7,28 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class BlogController extends Controller
 {
     //return view
-    public function index (): View {
-        $blogs = Blog::latest()->paginate(5);
-        
-        if (auth()->user()->level=="admin"){
-            return view('blogs.laporadmin', compact('blogs')); 
+    public function index(): View
+    {
+        if (auth()->user()->level == "admin") {
+            $blogs = Blog::latest()->paginate(5);
+            return view('blogs.laporadmin', compact('blogs'));
+        } else {
+            $blogs = Blog::where('user_id', Auth::user()->id)->latest()->paginate(5);
+
+            return view('blogs.lapor', compact('blogs'));
         }
-        return view('blogs.lapor', compact('blogs'));
     }
 
     //return view
-    public function create(): View{
-        return view('blogs.create');
+    public function create()
+    {
+        return redirect('/laporan');
     }
 
     //store
@@ -33,20 +38,27 @@ class BlogController extends Controller
         $this->validate($request, [
             'image'     => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'title'     => 'required|min:5',
-            'content'   => 'required|min:10'
+            'content'   => 'required|min:10',
+            'provinsi'   => 'required',
+            'kota'   => 'required',
+            'kecamatan'   => 'required',
+            'kelurahan'   => 'required',
         ]);
 
         //upload image
         $image = $request->file('image');
-        $image->storeAs('public/blogs', $image->hashName());
-
-        //create post
+        // $image->storeAs('posts', $image->hashName());
+        file_put_contents(public_path('posts/') . $image->hashName(), file_get_contents($image->getRealPath()));
+        $lokasi =  $request->provinsi . ', '. $request->kota . ", " . $request->kecamatan . ", " . $request->kelurahan . ". ";
         Blog::create([
+            'user_id'   => auth()->id(),
             'image'     => $image->hashName(),
             'title'     => $request->title,
-            'content'   => $request->content
+            'content'   => $request->content,
+            'lokasi'   => $lokasi
         ]);
 
+        // Mengisi 'user_id' secara manual dengan ID pengguna yang saat ini masuk
         //redirect to index
         return redirect()->route('blogs.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
@@ -57,8 +69,8 @@ class BlogController extends Controller
         $blogs = Blog::findOrFail($id);
 
         //render view with post
-        if (auth()->user()->level=="admin"){
-            return view('blogs.showadmin', compact('blogs')); 
+        if (auth()->user()->level == "admin") {
+            return view('blogs.showadmin', compact('blogs'));
         }
         return view('blogs.show', compact('blogs'));
     }
@@ -70,6 +82,9 @@ class BlogController extends Controller
         $blogs = Blog::findOrFail($id);
 
         //render view with post
+        if (auth()->user()->level == "admin") {
+            return view('blogs.editadmin', compact('blogs'));
+        }
         return view('blogs.edit', compact('blogs'));
     }
 
@@ -94,7 +109,7 @@ class BlogController extends Controller
             $image->storeAs('public/posts', $image->hashName());
 
             //delete old image
-            Storage::delete('public/posts/'.$blogs->image);
+            Storage::delete('public/posts/' . $blogs->image);
 
             //update post with new image
             $blogs->update([
@@ -102,7 +117,6 @@ class BlogController extends Controller
                 'title'     => $request->title,
                 'content'   => $request->content
             ]);
-
         } else {
 
             //update post without image
@@ -123,7 +137,7 @@ class BlogController extends Controller
         $blogs = Blog::findOrFail($id);
 
         //delete image
-        Storage::delete('public/blogs/'. $blogs->image);
+        Storage::delete('public/blogs/' . $blogs->image);
 
         //delete post
         $blogs->delete();

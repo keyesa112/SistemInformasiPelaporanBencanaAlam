@@ -10,6 +10,14 @@ class Blog extends Model
     use HasFactory;
 
     protected $fillable = [
-        'image', 'title', 'content'
+    'provinsi_id','user_id','image', 'title', 'content','lokasi'
     ];
+
+
+    protected $primaryKey = 'id';
+
+    public function Blog()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

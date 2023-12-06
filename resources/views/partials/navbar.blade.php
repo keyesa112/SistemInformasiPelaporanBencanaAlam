@@ -59,7 +59,6 @@
           @else
 
           @if (auth()->user()->level=="admin")
-          <li><a href="/admin">Admin</a></li>
           <li><a href="/users">Users</a></li>
           <li><a href="/histori">Histori Laporan User</a></li>
           @else

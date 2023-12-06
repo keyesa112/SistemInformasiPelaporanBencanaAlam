@@ -54,14 +54,15 @@ class UserController extends Controller
         $this->validate($request, [
             'name'     => 'required|min:1',
             'email'     => 'required|min:5',
-            'password'   => 'required|min:8'
+            'password'   => 'required|min:8',
         ]);
 
         //create post
         User::create([
-            'name'     => $request->name,
+            'name'      => $request->name,
             'email'     => $request->email,
-            'password'   => $request->password
+            'password'  => $request->password,
+            'level'     => 'user'
         ]);
 
         //redirect to index
@@ -111,7 +112,8 @@ class UserController extends Controller
         $this->validate($request, [
             'name'     => 'required|min:1',
             'email'     => 'required|min:5',
-            'password'   => 'required|min:8'
+            'password'   => 'required|min:8',
+            'level'     => 'required|min:1'
         ]);
 
         //get post by ID
@@ -121,7 +123,8 @@ class UserController extends Controller
             $users->update([
                 'name'     => $request->name,
                 'email'     => $request->email,
-                'password'   => $request->password
+                'password'   => $request->password,
+                'level'     => $request->level
             ]);
 
         //redirect to index

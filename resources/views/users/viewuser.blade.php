@@ -26,6 +26,7 @@
                                 <th scope="col">NAME</th>
                                 <th scope="col">EMAIL</th>
                                 <th scope="col">PASSWORD</th>
+                                <th scope="col">LEVEL</th>
                                 <th scope="col">AKSI</th>
                               </tr>
                             </thead>
@@ -35,6 +36,7 @@
                                     <td>{{ $post->name }}</td>
                                     <td>{{ $post->email }}</td>
                                     <td>{!! $post->password !!}</td>
+                                    <td>{{ $post->level }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('users.destroy', $post->id) }}" method="POST">
                                             <a href="{{ route('users.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>

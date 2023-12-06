@@ -171,7 +171,7 @@
               </div>
               <h3>Jawa Timur</h3>
               <p>Laporkan bencana di sekitarmu, bersama kita dapat memberikan pertolongan yang tepat dan menyelamatkan nyawa. Ayo beraksi sekarang!</p>
-              <a href="/jawa-timur" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <a href="/laporan" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -182,7 +182,7 @@
               </div>
               <h3>Jawa Tengah</h3>
               <p>Dorong kesadaran, laporkan bencana. Bersama kita dapat menyebarkan informasi penting, membantu korban, dan membangun keberdayaan komunitas. Ayo berpartisipasi!</p>
-              <a href="/jawa-tengah" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <a href="/laporan" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -193,7 +193,7 @@
               </div>
               <h3>Jawa Barat</h3>
               <p>Mari bersatu, laporkan bencana. Dengan melaporkan, kita dapat menyelamatkan nyawa, memberikan bantuan, dan memulihkan daerah terdampak. Bergabunglah dalam aksi kemanusiaan ini!</p>
-              <a href="/jawa-barat" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <a href="/laporan" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -204,7 +204,7 @@
               </div>
               <h3>Wilayah Kalimantan</h3>
               <p>Teruskan kepedulianmu, melaporkan bencana penting. Setiap laporan menjadi langkah awal dalam memberikan bantuan dan memulihkan daerah terdampak. Jadilah suara yang berarti!</p>
-              <a href="/kalimantan" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <a href="/laporan" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -215,7 +215,7 @@
               </div>
               <h3>Wilayah Sumatera</h3>
               <p>Teruslah melaporkan bencana, menjaga keselamatan, dan membantu mereka yang membutuhkan. Bersama-sama, kita bisa membangun keberdayaan dan mengurangi dampak bencana. Jangan pernah berhenti peduli!</p>
-              <a href="/sumatera" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <a href="/laporan" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -226,7 +226,7 @@
               </div>
               <h3>Wilayah Sulawesi</h3>
               <p>Jangan berhenti melaporkan bencana, menjadi mata dan suara untuk mereka yang terkena dampak. Dengan saling peduli dan berbagi informasi, kita bisa menyelamatkan lebih banyak nyawa. Bersama, kita bisa mengubah nasib!</p>
-              <a href="/sulawesi" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+              <a href="/laporan" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 

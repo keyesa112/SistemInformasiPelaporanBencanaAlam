@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_kota', 45);
             $table->timestamps();
+            $table->unsignedBigInteger('idProv')->nullable();
+            $table->foreign('idProv')->references('id')->on('provinsi');
         });
     }
 

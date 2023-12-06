@@ -48,22 +48,26 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
+                                <th scope="col">LOKASI</th>
                                 <th scope="col">GAMBAR</th>
                                 <th scope="col">JUDUL</th>
                                 <th scope="col">CONTENT</th>
+                                <th scope="col">PELAPOR</th>
                                 <th scope="col">AKSI</th>
                               </tr>
                             </thead>
                             <tbody>
                               @forelse ($blogs as $post)
                                 <tr>
+                                  <td>{!! $post->lokasi !!}</td>
                                     <td class="text-center">
-                                        <img src="{{ asset('/storage/blogs/'.$post->image) }}" class="rounded" style="width: 150px">
+                                        <img src="{{ asset('/posts\/'.$post->image) }}" class="rounded" style="width: 150px">
                                     </td>
                                     <td>{{ $post->title }}</td>
                                     <td>{!! $post->content !!}</td>
+                                    <td>{!! $post->Blog->name !!}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('blogs.destroy', $post->id) }}" method="POST">
+                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('blogs.destroy', $post->id) }}" method="POST">
                                             <a href="{{ route('blogs.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>
                                             <a href="{{ route('blogs.edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf

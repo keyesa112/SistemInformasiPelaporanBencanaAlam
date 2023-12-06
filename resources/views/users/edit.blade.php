@@ -55,6 +55,21 @@
                                 @enderror
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Role</label>
+                                    <select class="form-control @error('level') is-invalid @enderror" name="level">
+                                        <option value="admin" {{ old('level') === 'admin' ? 'selected' : '' }}>Admin</option>
+                                        <option value="user" {{ old('level') === 'user' ? 'selected' : '' }}>User</option>
+                                    </select>
+                                
+                                    <!-- error message untuk level -->
+                                    @error('level')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>                                
+
                             <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
 
